@@ -19,25 +19,62 @@ git push -u origin master
 Встановіть TypeScript, якщо ще цього не зробили:
 
 ```
-Copy code
+
 npm install -g typescript
+tsc --init
+npm init -y
 ```
+
+
 Створіть файл tsconfig.json та встановіть необхідні параметри:
 
 ```
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "outDir": "./dist",
     "rootDir": "./src",
-    "strict": true,
+    "outDir": "./dist",
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
     "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "ES2021"],
+    "module": "es2020",
+    "moduleResolution": "node",
+    "preserveConstEnums": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "target": "es2019",
     "sourceMap": true
-  }
+  },
+  "include": ["**/*.ts"]
 }
 ```
-# 4. Опціональне завдання: Встановлення source maps:
+```
+npm i --save-dev @web/dev-server
+```
+
+# 4. Перейдемо до файлу package.json, де нам потрібно додати команду start:
+```
+{
+  "name": "courses_ts",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "web-dev-server --node-resolve --open --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@web/dev-server": "^0.2.1"
+  }
+}
+
+npm start
+tsc -w
+```
+# 5. Опціональне завдання: Встановлення source maps:
 Додайте або перевірте, що опція sourceMap встановлена в true у файлі tsconfig.json.
 
 ```
@@ -47,11 +84,4 @@ npm install -g typescript
   }
 }
 ```
-# 5. Відправлення посилання для перевірки:
-Відправте посилання на свій репозиторій ментору для перевірки завдання.
 
-```
-git remote add upstream https://github.com/mentor-username/goit-typescript-hw-01.git
-git push -u upstream master
-```
-Завершивши ці кроки, ваше середовище розробки та компілятор TypeScript повинні бути налаштовані та готові для використання.
