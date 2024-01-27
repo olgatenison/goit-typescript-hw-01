@@ -21,14 +21,16 @@ git push -u origin master
 ```
 
 npm install -g typescript
-tsc --init
-npm init -y
+
 ```
 
 
 Створіть файл tsconfig.json та встановіть необхідні параметри:
 
 ```
+tsc --init
+npm init -y
+
 {
   "compilerOptions": {
     "rootDir": "./src",
