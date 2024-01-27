@@ -45,7 +45,7 @@ npm init -y
     "skipLibCheck": true,
     "strictNullChecks": true,
     "target": "es2019",
-    "sourceMap": true
+
   },
   "include": ["**/*.ts"]
 }
